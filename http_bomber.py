@@ -35,8 +35,7 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format="%(message)s")
 
     app = web.Application()
-    app.router.add_get("/", handler)
-    app.router.add_post("/", handler)
+    app.router.add_route("*", "/{x:.*}", handler)
     web.run_app(
         app,
         port=8080,
